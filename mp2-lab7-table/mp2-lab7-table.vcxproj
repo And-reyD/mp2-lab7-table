@@ -139,6 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="TArrayTable.h" />
+    <ClInclude Include="TScanTable.h" />
+    <ClInclude Include="TSortTable.h" />
     <ClInclude Include="TTable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
