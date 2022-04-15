@@ -42,6 +42,7 @@ bool TSortTable::Insert(TRecord rec) {
 		arr[i + 1] = arr[i];
 		Eff++;
 	}
+
 	arr[curr] = rec;
 	DataCount++;
 	Eff++;
@@ -49,5 +50,16 @@ bool TSortTable::Insert(TRecord rec) {
 }
 
 bool TSortTable::Delete(TKey key) {
+	if (!Find(key)) {
+		return false;
+	}
 
+	for (int i = curr; i < DataCount - 1; i++) {
+		arr[i] = arr[i + 1];
+		Eff++;
+	}
+
+	DataCount--;
+	Eff++;
+	return true;
 }
