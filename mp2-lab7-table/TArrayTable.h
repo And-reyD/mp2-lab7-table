@@ -11,12 +11,14 @@ public:
 
 	bool IsFull();
 
-	TKey GetKey();
-	TValue GetValue();
+	TKey GetCurrentKey() const override;
+	TValue GetCurrentValue() const override;
 
 	void Reset();
 	void GoNext();
 	bool IsEnd();
+
+	int GetSize() const;
 };
 
 TArrayTable::TArrayTable(int _size) {
@@ -33,11 +35,11 @@ bool TArrayTable::IsFull() {
 	return DataCount == size;
 }
 
-TKey TArrayTable::GetKey() {
+TKey TArrayTable::GetCurrentKey() const {
 	return arr[curr].key;
 }
 
-TValue TArrayTable::GetValue() {
+TValue TArrayTable::GetCurrentValue() const {
 	return arr[curr].val;
 }
 
@@ -51,4 +53,8 @@ void TArrayTable::GoNext() {
 
 bool TArrayTable::IsEnd() {
 	return curr == DataCount;
+}
+
+int TArrayTable::GetSize() const {
+	return size;
 }
