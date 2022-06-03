@@ -9,6 +9,11 @@ struct TRecord {
 	TKey key;
 	TValue val;
 
+	TRecord(TKey _key = -1, TValue _val = "value-1") {
+		key = _key;
+		val = _val;
+	}
+
 	bool operator==(const TRecord& other) const {
 		return (key == other.key);
 	}
@@ -34,13 +39,18 @@ struct TRecord {
 	}
 };
 
+std::ostream& operator<<(std::ostream& os, const TRecord& rec) {
+	os << rec.key << ": " << rec.val;
+	return os;
+}
+
 class TTable {
 protected:
 	int DataCount;
 	int Eff;
 public:
 	TTable();
-	virtual ~TTable() {};
+	virtual ~TTable();
 
 	int GetDataCount() const;
 	int GetEff() const;
@@ -63,7 +73,7 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& os, TTable& t) {
 		for (t.Reset(); !t.IsEnd(); t.GoNext()) {
-			os << t.GetCurrentKey() << " " << t.GetCurrentValue();
+			os << t.GetCurrentKey() << " " << t.GetCurrentValue() << '\n';
 		}
 		return os;
 	}

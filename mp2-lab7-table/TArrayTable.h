@@ -9,14 +9,14 @@ public:
 	TArrayTable(int _size = 10);
 	~TArrayTable();
 
-	bool IsFull();
+	bool IsFull() const override;
 
 	TKey GetCurrentKey() const override;
 	TValue GetCurrentValue() const override;
 
-	void Reset();
-	void GoNext();
-	bool IsEnd();
+	void Reset() override;
+	void GoNext() override;
+	bool IsEnd() override;
 
 	int GetSize() const;
 };
@@ -31,7 +31,7 @@ TArrayTable::~TArrayTable() {
 	delete[] arr;
 }
 
-bool TArrayTable::IsFull() {
+bool TArrayTable::IsFull() const {
 	return DataCount == size;
 }
 

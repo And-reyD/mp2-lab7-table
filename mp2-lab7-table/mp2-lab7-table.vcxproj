@@ -139,10 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Randomex.h" />
+    <ClInclude Include="TArrayHashTable.h" />
     <ClInclude Include="TArrayTable.h" />
+    <ClInclude Include="TBalTreeTable.h" />
+    <ClInclude Include="THashTable.h" />
+    <ClInclude Include="TList.h" />
+    <ClInclude Include="TListHashTable.h" />
     <ClInclude Include="TScanTable.h" />
     <ClInclude Include="TSortTable.h" />
+    <ClInclude Include="TStack.h" />
     <ClInclude Include="TTable.h" />
+    <ClInclude Include="TTreeTable.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
